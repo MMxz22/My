@@ -124,60 +124,60 @@
       50% { opacity: 0.4; }
     }
     .projects-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4rem 1rem;
-  text-align: center;
-}
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
 
-.section-title {
-  font-size: 3rem;
-  font-weight: 900;
-  background: linear-gradient(45deg, #6666cc, #9999ff, #ccccff, #6666cc);
-  background-size: 300% 300%;
-  animation: starlight-shimmer 4s ease infinite;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 3rem;
-}
+    .section-title {
+      font-size: 3rem;
+      font-weight: 900;
+      background: linear-gradient(45deg, #6666cc, #9999ff, #ccccff, #6666cc);
+      background-size: 300% 300%;
+      animation: starlight-shimmer 4s ease infinite;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 3rem;
+    }
 
-.projects-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 3rem;
-}
+    .projects-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 3rem;
+    }
 
-.project-card {
-  width: 220px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
+    .project-card {
+      width: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
 
-.project-card:hover {
-  transform: scale(1.05);
-}
+    .project-card:hover {
+      transform: scale(1.05);
+    }
 
-.project-image-circle {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid rgba(102, 102, 204, 0.7);
-  box-shadow: 0 0 15px rgba(102, 102, 204, 0.5);
-  margin-bottom: 1rem;
-}
+    .project-image-circle {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(102, 102, 204, 0.7);
+      box-shadow: 0 0 15px rgba(102, 102, 204, 0.5);
+      margin-bottom: 1rem;
+    }
 
-.project-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #9999ff;
-  text-shadow: 0 0 5px rgba(102, 102, 204, 0.7);
-}
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #9999ff;
+      text-shadow: 0 0 5px rgba(102, 102, 204, 0.7);
+    }
   </style>
 </head>
 <body class="text-white transition-all duration-500 relative min-h-screen overflow-x-hidden">
@@ -275,4 +275,74 @@
           <span class="text-xl font-semibold text-gray-300">☕ Java</span>
           <span class="text-indigo-400 font-bold">75%</span>
         </div>
-        <div class="
+        <div class="w-full bg-black/50 rounded-full h-6 overflow-hidden border border-gray-800">
+          <div class="stellar-gradient h-6 rounded-full animate-progress cosmic-glow" style="width: 75%"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects-section" id="projects">
+    <h2 class="section-title">My Projects</h2>
+    <div class="projects-container">
+      
+      <div class="project-card">
+        <img src="https://cdn.discordapp.com/attachments/1128740069662910494/1247968052369195048/Screenshot_2024-06-06-17-39-00-65_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg?ex=6661f951&is=6660a7d1&hm=30a991226d31e9d760e96a9634a51199f5e870f3d0e35fbc08b4ee1c3ed78f91&" alt="Project 1" class="project-image-circle">
+        <h3 class="project-title">Project Alpha</h3>
+      </div>
+
+      <div class="project-card">
+        <img src="https://cdn.discordapp.com/attachments/1128740069662910494/1247968052369195048/Screenshot_2024-06-06-17-39-00-65_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg?ex=6661f951&is=6660a7d1&hm=30a991226d31e9d760e96a9634a51199f5e870f3d0e35fbc08b4ee1c3ed78f91&" alt="Project 2" class="project-image-circle">
+        <h3 class="project-title">Project Beta</h3>
+      </div>
+
+      <div class="project-card">
+        <img src="https://cdn.discordapp.com/attachments/1128740069662910494/1247968052369195048/Screenshot_2024-06-06-17-39-00-65_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg?ex=6661f951&is=6660a7d1&hm=30a991226d31e9d760e96a9634a51199f5e870f3d0e35fbc08b4ee1c3ed78f91&" alt="Project 3" class="project-image-circle">
+        <h3 class="project-title">Project Gamma</h3>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 px-4 max-w-lg mx-auto">
+    <h2 class="text-5xl font-bold text-center mb-8 starlight-text">Contact the Void</h2>
+    <div class="space-glass rounded-3xl p-8 cosmic-glow">
+      <form class="space-y-6">
+        <input type="text" placeholder="Your Name" required 
+               class="w-full px-6 py-4 rounded-2xl bg-black/50 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 cosmic-glow backdrop-blur-sm border border-gray-800" />
+        <input type="email" placeholder="Your Email" required 
+               class="w-full px-6 py-4 rounded-2xl bg-black/50 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 cosmic-glow backdrop-blur-sm border border-gray-800" />
+        <textarea placeholder="Your Message" rows="5" 
+                  class="w-full px-6 py-4 rounded-2xl bg-black/50 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 cosmic-glow backdrop-blur-sm border border-gray-800"></textarea>
+              <button type="submit" 
+                class="w-full stellar-gradient hover:scale-105 text-blue-100 font-semibold py-4 rounded-2xl transition-transform cosmic-glow">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    // Particles.js config
+    particlesJS.load('particles-js', null, function() {
+      console.log('particles.js loaded - callback');
+    });
+
+    // Toggle theme button
+    const toggleBtn = document.getElementById('toggleTheme');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      if(document.body.classList.contains('dark')){
+        toggleBtn.textContent = 'Light Mode';
+        document.body.style.background = '#000011';
+      } else {
+        toggleBtn.textContent = 'Deep Space';
+        document.body.style.background = '';
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,131 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>ily Devlep - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet"/>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fahad Devlep | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Particles.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+    
+    * {
+      font-family: 'Orbitron', monospace;
+    }
+    
+    /* Realistic space gradients and effects */
+    .deep-space {
+      background: linear-gradient(135deg, #0a0a23 0%, #1a1a40 50%, #000000 100%);
+    }
+    
+    .void-gradient {
+      background: linear-gradient(45deg, #000011 0%, #001122 50%, #000000 100%);
+    }
+    
+    .stellar-gradient {
+      background: linear-gradient(90deg, #0f0f23 0%, #1a1a3a 50%, #000000 100%);
+    }
+    
+    .nebula-dark {
+      background: linear-gradient(135deg, #1a0033 0%, #000000 50%, #0d0d2b 100%);
+    }
+    
+    .cosmic-glow {
+      box-shadow: 0 0 15px rgba(100, 100, 200, 0.3);
+      animation: cosmic-pulse 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes cosmic-pulse {
+      from { box-shadow: 0 0 15px rgba(100, 100, 200, 0.2); }
+      to { box-shadow: 0 0 25px rgba(150, 150, 255, 0.4); }
+    }
+    
+    @keyframes progress {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+    
+    .animate-progress {
+      animation: progress 3s ease-out forwards;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+    
+    .floating {
+      animation: float 8s ease-in-out infinite;
+    }
+    
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    .rotating {
+      animation: rotate 30s linear infinite;
+    }
+    
+    .space-glass {
+      background: rgba(20, 20, 50, 0.2);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(100, 100, 200, 0.15);
+    }
+    
+    .starlight-text {
+      background: linear-gradient(45deg, #6666cc, #9999ff, #ccccff, #6666cc);
+      background-size: 300% 300%;
+      animation: starlight-shimmer 4s ease infinite;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    @keyframes starlight-shimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    body {
+      background: 
+        radial-gradient(ellipse at 20% 50%, rgba(30, 30, 80, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(50, 30, 100, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 40% 80%, rgba(20, 50, 80, 0.2) 0%, transparent 50%),
+        linear-gradient(180deg, #000000 0%, #0a0a1a 30%, #000011 70%, #000000 100%);
+      min-height: 100vh;
+      position: relative;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 90px 40px, #ffffff, transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(2px 2px at 160px 30px, #ffffff, transparent);
+      background-repeat: repeat;
+      background-size: 200px 100px;
+      animation: twinkle 10s ease-in-out infinite;
+      z-index: -1;
+      opacity: 0.8;
+    }
+    
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 0.4; }
+    }
+    .projects-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+  text-align: center;
+}
 
-      body {
-        font-family: 'Orbitron', sans-serif;
-        background: linear-gradient(135deg, #0a0f2c, #1c1f3f);
-        color: #fff;
-      }
+.section-title {
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(45deg, #6666cc, #9999ff, #ccccff, #6666cc);
+  background-size: 300% 300%;
+  animation: starlight-shimmer 4s ease infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 3rem;
+}
 
-      header {
-        padding: 2rem;
-        text-align: center;
-        background-color: rgba(0, 0, 0, 0.2);
-        backdrop-filter: blur(10px);
-      }
+.projects-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
 
-      h1 {
-        font-size: 3rem;
-        background: linear-gradient(90deg, #0ff, #00f6ff, #0ff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
+.project-card {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
 
-      section {
-        padding: 3rem 1rem;
-        text-align: center;
-      }
+.project-card:hover {
+  transform: scale(1.05);
+}
 
-      .section-title {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        color: #0ff;
-      }
+.project-image-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(102, 102, 204, 0.7);
+  box-shadow: 0 0 15px rgba(102, 102, 204, 0.5);
+  margin-bottom: 1rem;
+}
 
-      .section-subtitle {
-        color: #aaa;
-        margin-bottom: 2rem;
-      }
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #9999ff;
+  text-shadow: 0 0 5px rgba(102, 102, 204, 0.7);
+}
+  </style>
+</head>
+<body class="text-white transition-all duration-500 relative min-h-screen overflow-x-hidden">
 
-      .projects-container {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 2rem;
-      }
+  <!-- Particles background -->
+  <div id="particles-js" class="fixed inset-0 -z-10"></div>
 
-      .project-card {
-        background: rgba(255, 255, 255, 0.05);
-        padding: 1rem;
-        border-radius: 1rem;
-        width: 200px;
-        transition: transform 0.3s;
-        backdrop-filter: blur(5px);
-      }
+  <!-- Floating cosmic elements -->
+  <div class="fixed top-10 left-10 w-16 h-16 rounded-full deep-space opacity-40 floating cosmic-glow"></div>
+  <div class="fixed top-1/3 right-20 w-12 h-12 rounded-full void-gradient opacity-50 rotating"></div>
+  <div class="fixed bottom-20 left-1/4 w-8 h-8 rounded-full nebula-dark opacity-60 floating"></div>
+  <div class="fixed top-2/3 left-10 w-6 h-6 rounded-full stellar-gradient opacity-30 floating"></div>
+  <div class="fixed bottom-1/3 right-10 w-10 h-10 rounded-full deep-space opacity-45 rotating"></div>
 
-      .project-card:hover {
-        transform: scale(1.05);
-      }
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center p-6 space-glass rounded-full mx-4 mt-4 cosmic-glow">
+    <h1 class="text-3xl font-bold starlight-text cursor-default">Fahad Devlep</h1>
+    <button id="toggleTheme" class="px-6 py-3 rounded-full stellar-gradient hover:scale-105 transition-transform cosmic-glow font-semibold text-blue-200">
+      Deep Space
+    </button>
+  </nav>
 
-      .project-title {
-        margin-top: 1rem;
-        color: #0ff;
-      }
+  <!-- Intro -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-4">
+    <div class="deep-space rounded-full p-8 cosmic-glow mb-8 border border-blue-900/30">
+      <h2 class="text-6xl font-extrabold text-gray-100 drop-shadow-lg">Welcome to the Void</h2>
+    </div>
+    <p class="max-w-xl text-xl mb-8 text-blue-300 font-light">
+      🚀 Developer navigating the infinite darkness of deep space
+    </p>
+    <div class="flex space-x-4">
+      <div class="w-3 h-3 rounded-full bg-blue-600 animate-pulse"></div>
+      <div class="w-3 h-3 rounded-full bg-indigo-600 animate-pulse delay-100"></div>
+      <div class="w-3 h-3 rounded-full bg-purple-800 animate-pulse delay-200"></div>
+    </div>
+  </section>
 
-      .project-image-circle {
-        width: 130px;
-        height: 130px;
-        object-fit: cover;
-        border-radius: 50%;
-        border: 3px solid #0ff;
-        box-shadow: 0 0 10px #0ff;
-        transition: transform 0.3s ease;
-      }
-
-      .project-image-circle:hover {
-        transform: scale(1.05);
-      }
-
-      footer {
-        padding: 2rem;
-        text-align: center;
-        font-size: 0.9rem;
-        color: #777;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>ily Devlep</h1>
-    </header>
-
-    <section class="projects-section" id="projects">
-      <div class="section-header">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">Some of my highlighted work</p>
+  <!-- Skills Section -->
+  <section id="skills" class="py-16 px-4 max-w-4xl mx-auto">
+    <h2 class="text-5xl font-bold text-center mb-12 starlight-text">Deep Space Skills</h2>
+    <div class="space-y-8">
+      
+      <div class="space-glass rounded-3xl p-6 cosmic-glow">
+        <div class="flex justify-between mb-3">
+          <span class="text-xl font-semibold text-blue-300">🌐 HTML</span>
+          <span class="text-indigo-400 font-bold">95%</span>
+        </div>
+        <div class="w-full bg-black/50 rounded-full h-6 overflow-hidden border border-gray-800">
+          <div class="deep-space h-6 rounded-full animate-progress cosmic-glow" style="width: 95%"></div>
+        </div>
       </div>
 
-      <div class="projects-container">
-        <div class="project-card">
-          <img src="https://cdn.discordapp.com/attachments/1128740069662910494/1247968052369195048/Screenshot_2024-06-06-17-39-00-65_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg" alt="Project 1" class="project-image-circle" />
-          <h3 class="project-title">Project Alpha</h3>
+      <div class="space-glass rounded-3xl p-6 cosmic-glow">
+        <div class="flex justify-between mb-3">
+          <span class="text-xl font-semibold text-blue-200">🎨 CSS</span>
+          <span class="text-indigo-400 font-bold">90%</span>
         </div>
-
-        <div class="project-card">
-          <img src="https://cdn.discordapp.com/attachments/1128740069662910494/1247968202578966558/Screenshot_2024-06-06-17-37-47-29_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg" alt="Project 2" class="project-image-circle" />
-          <h3 class="project-title">Project Beta</h3>
-        </div>
-
-        <div class="project-card">
-          <img src="https://cdn.discordapp.com/attachments/1128740069662910494/1247968459382216704/Screenshot_2024-06-06-17-37-28-42_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg" alt="Project 3" class="project-image-circle" />
-          <h3 class="project-title">Project Gamma</h3>
+        <div class="w-full bg-black/50 rounded-full h-6 overflow-hidden border border-gray-800">
+          <div class="stellar-gradient h-6 rounded-full animate-progress cosmic-glow" style="width: 90%"></div>
         </div>
       </div>
-    </section>
 
-    <footer>
-      &copy; 2025 ily Devlep. All rights reserved.
-    </footer>
-  </body>
-</html>
+      <div class="space-glass rounded-3xl p-6 cosmic-glow">
+        <div class="flex justify-between mb-3">
+          <span class="text-xl font-semibold text-slate-300">⚡ JavaScript</span>
+          <span class="text-indigo-400 font-bold">85%</span>
+        </div>
+        <div class="w-full bg-black/50 rounded-full h-6 overflow-hidden border border-gray-800">
+          <div class="void-gradient h-6 rounded-full animate-progress cosmic-glow" style="width: 85%"></div>
+        </div>
+      </div>
+
+      <div class="space-glass rounded-3xl p-6 cosmic-glow">
+        <div class="flex justify-between mb-3">
+          <span class="text-xl font-semibold text-purple-300">🐍 Python</span>
+          <span class="text-indigo-400 font-bold">88%</span>
+        </div>
+        <div class="w-full bg-black/50 rounded-full h-6 overflow-hidden border border-gray-800">
+          <div class="nebula-dark h-6 rounded-full animate-progress cosmic-glow" style="width: 88%"></div>
+        </div>
+      </div>
+
+      <div class="space-glass rounded-3xl p-6 cosmic-glow">
+        <div class="flex justify-between mb-3">
+          <span class="text-xl font-semibold text-blue-400">🎯 Dart</span>
+          <span class="text-indigo-400 font-bold">70%</span>
+        </div>
+        <div class="w-full bg-black/50 rounded-full h-6 overflow-hidden border border-gray-800">
+          <div class="deep-space h-6 rounded-full animate-progress cosmic-glow" style="width: 70%"></div>
+        </div>
+      </div>
+
+      <div class="space-glass rounded-3xl p-6 cosmic-glow">
+        <div class="flex justify-between mb-3">
+          <span class="text-xl font-semibold text-gray-300">☕ Java</span>
+          <span class="text-indigo-400 font-bold">75%</span>
+        </div>
+        <div class="

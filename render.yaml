@@ -1,0 +1,15 @@
+# Exported from Render on 2025-07-18T17:05:49Z
+services:
+- type: web
+  name: My
+  runtime: docker
+  repo: https://github.com/MMxz22/My
+  plan: free
+  envVars:
+  - key: AboutmeFahad
+    sync: false
+  region: oregon
+  dockerContext: .
+  dockerfilePath: ./Dockerfile
+  autoDeployTrigger: commit
+version: "1"

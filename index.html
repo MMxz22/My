@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ily Devlep | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Particles.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+    
+    * {
+      font-family: 'Orbitron', monospace;
+    }
+    
+    /* Realistic space gradients and effects */
+    .deep-space {
+      background: linear-gradient(135deg, #0a0a23 0%, #1a1a40 50%, #000000 100%);
+    }
+    
+    .void-gradient {
+      background: linear-gradient(45deg, #000011 0%, #001122 50%, #000000 100%);
+    }
+    
+    .stellar-gradient {
+      background: linear-gradient(90deg, #0f0f23 0%, #1a1a3a 50%, #000000 100%);
+    }
+    
+    .nebula-dark {
+      background: linear-gradient(135deg, #1a0033 0%, #000000 50%, #0d0d2b 100%);
+    }
+    
+    .cosmic-glow {
+      box-shadow: 0 0 15px rgba(100, 100, 200, 0.3);
+      animation: cosmic-pulse 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes cosmic-pulse {
+      from { box-shadow: 0 0 15px rgba(100, 100, 200, 0.2); }
+      to { box-shadow: 0 0 25px rgba(150, 150, 255, 0.4); }
+    }
+    
+    @keyframes progress {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+    
+    .animate-progress {
+      animation: progress 3s ease-out forwards;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+    
+    .floating {
+      animation: float 8s ease-in-out infinite;
+    }
+    
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    .rotating {
+      animation: rotate 30s linear infinite;
+    }
+    
+    .space-glass {
+      background: rgba(20, 20, 50, 0.2);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(100, 100, 200, 0.15);
+    }
+    
+    .starlight-text {
+      background: linear-gradient(45deg, #6666cc, #9999ff, #ccccff, #6666cc);
+      background-size: 300% 300%;
+      animation: starlight-shimmer 4s ease infinite;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    @keyframes starlight-shimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    body {
+      background: 
+        radial-gradient(ellipse at 20% 50%, rgba(30, 30, 80, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(50, 30, 100, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 40% 80%, rgba(20, 50, 80, 0.2) 0%, transparent 50%),
+        linear-gradient(180deg, #000000 0%, #0a0a1a 30%, #000011 70%, #000000 100%);
+      min-height: 100vh;
+      position: relative;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 90px 40px, #ffffff, transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(2px 2px at 160px 30px, #ffffff, transparent);
+      background-repeat: repeat;
+      background-size: 200px 100px;
+      animation: twinkle 10s ease-in-out infinite;
+      z-index: -1;
+      opacity: 0.8;
+    }
+    
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 0.4; }
+    }
+  </style>
+</head>
+<body class="text-white transition-all duration-500 relative min-h-screen overflow-x-hidden">
+
+  <!-- Particles background -->
+  <div id="particles-js" class="fixed inset-0 -z-10"></div>
+
+  <!-- Floating cosmic elements -->
+  <div class="fixed top-10 left-10 w-16 h-16 rounded-full deep-space opacity-40 floating cosmic-glow"></div>
+  <div class="fixed top-1/3 right-20 w-12 h-12 rounded-full void-gradient opacity-50 rotating"></div>
+  <div class="fixed bottom-20 left-1/4 w-8 h-8 rounded-full nebula-dark opacity-60 floating"></div>
+  <div class="fixed top-2/3 left-10 w-6 h-6 rounded-full stellar-gradient opacity-30 floating"></div>
+  <div class="fixed bottom-1/3 right-10 w-10 h-10 rounded-full deep-space opacity-45 rotating"></div>
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center p-6 space-glass rounded-full mx-4 mt-4 cosmic-glow">
+    <h1 class="text-3xl font-bold starlight-text cursor-default">ily Devlep</h1>
+    <button id="toggleTheme" class="px-6 py-3 rounded-full stellar-gradient hover:scale-105 transition-transform cosmic-glow font-semibold text-blue-200">
+      Deep Space
+    </button>
+  </nav>
+
+  <!-- Intro -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-4">
+    <div class="deep-space rounded-full p-8 cosmic-glow mb-8 border border-blue-900/30">
+      <h2 class="text-6xl font-extrabold text-gray-100 drop-shadow-lg">Welcome to the Void</h2>
+    </div>
+    <p class="max-w-xl text-xl mb-8 text-blue-300 font-light">
+      🚀 Developer navigating the infinite darkness of deep space
+    </p>
+    <div class="flex space-x-4">
+      <div class="w-3 h-3 rounded-full bg-blue-600 animate-pulse"></div>
+      <div class="w-3 h-3 rounded-full bg-indigo-600 animate-pulse delay-100"></div>
+      <div class="w-3 h-3 rounded-full bg-purple-800 animate-pulse delay-200"></div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-16 px-4 max-w-4xl mx-auto">
+    <h2 class="text-5xl font-bold text-center mb-12 starlight-text">Deep Space Skills</h2>
+    <div class="space-y-8">
+      
+      <div class="space-glass rounded-3xl p-6 cosmic-glow">
+        <div class="flex justify-between mb-3">
+          <span class="text-xl font-semibold text-blue-300">🌐 HTML</span>
+          <span class="text-indigo-400 font-bold">95%</span>
+        </div>
+        <div class="w-full bg-black/50 rounded-full h-6 overflow-hidden border border-gray-800">
+          <div class="deep-space h-6 rounded-full animate-progress cosmic-glow" style="width: 95%"></div>
+        </div>
+      </div>
+
+      <div class="space-glass rounded-3xl p-6 cosmic-glow">
+        <div class="flex justify-between mb-3">
+          <span class="text-xl font-semibold text-blue-200">🎨 CSS</span>
+          <span class="text-indigo-400 font-bold">90%</span>
+        </div>
+        <div class="w-full bg-black/50 rounded-full h-6 overflow-hidden border border-gray-800">
+          <div class="stellar-gradient h-6 rounded-full animate-progress cosmic-glow" style="width: 90%"></div>
+        </div>
+      </div>
+
+      <div class="space-glass rounded-3xl p-6 cosmic-glow">
+        <div class="flex justify-between mb-3">
+          <span class="text-xl font-semibold text-slate-300">⚡ JavaScript</span>
+          <span class="text-indigo-400 font-bold">85%</span>
+        </div>
+        <div class="w-full bg-black/50 rounded-full h-6 overflow-hidden border border-gray-800">
+          <div class="void-gradient h-6 rounded-full animate-progress cosmic-glow" style="width: 85%"></div>
+        </div>
+      </div>
+
+      <div class="space-glass rounded-3xl p-6 cosmic-glow">
+        <div class="flex justify-between mb-3">
+          <span class="text-xl font-semibold text-purple-300">🐍 Python</span>
+          <span class="text-indigo-400 font-bold">88%</span>
+        </div>
+        <div class="w-full bg-black/50 rounded-full h-6 overflow-hidden border border-gray-800">
+          <div class="nebula-dark h-6 rounded-full animate-progress cosmic-glow" style="width: 88%"></div>
+        </div>
+      </div>
+
+      <div class="space-glass rounded-3xl p-6 cosmic-glow">
+        <div class="flex justify-between mb-3">
+          <span class="text-xl font-semibold text-blue-400">🎯 Dart</span>
+          <span class="text-indigo-400 font-bold">70%</span>
+        </div>
+        <div class="w-full bg-black/50 rounded-full h-6 overflow-hidden border border-gray-800">
+          <div class="deep-space h-6 rounded-full animate-progress cosmic-glow" style="width: 70%"></div>
+        </div>
+      </div>
+
+      <div class="space-glass rounded-3xl p-6 cosmic-glow">
+        <div class="flex justify-between mb-3">
+          <span class="text-xl font-semibold text-gray-300">☕ Java</span>
+          <span class="text-indigo-400 font-bold">75%</span>
+        </div>
+        <div class="w-full bg-black/50 rounded-full h-6 overflow-hidden border border-gray-800">
+          <div class="stellar-gradient h-6 rounded-full animate-progress cosmic-glow" style="width: 75%"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-16 px-4 max-w-6xl mx-auto">
+    <h2 class="text-5xl font-bold text-center mb-12 starlight-text">Void Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <div class="space-glass rounded-3xl p-6 cosmic-glow hover:scale-105 transition-transform cursor-pointer floating">
+        <div class="deep-space rounded-2xl h-48 flex items-center justify-center mb-4 border border-gray-800">
+          <span class="text-2xl font-bold text-blue-300">🚀 Project Alpha</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-blue-200">Deep Space App</h3>
+        <p class="text-gray-400">Application navigating the cosmic void</p>
+      </div>
+
+      <div class="space-glass rounded-3xl p-6 cosmic-glow hover:scale-105 transition-transform cursor-pointer floating">
+        <div class="void-gradient rounded-2xl h-48 flex items-center justify-center mb-4 border border-gray-800">
+          <span class="text-2xl font-bold text-indigo-300">🌌 Project Beta</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-indigo-200">Dark Matter Dashboard</h3>
+        <p class="text-gray-400">Dashboard for monitoring the infinite darkness</p>
+      </div>
+
+      <div class="space-glass rounded-3xl p-6 cosmic-glow hover:scale-105 transition-transform cursor-pointer floating">
+        <div class="stellar-gradient rounded-2xl h-48 flex items-center justify-center mb-4 border border-gray-800">
+          <span class="text-2xl font-bold text-purple-300">⭐ Project Gamma</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-purple-200">Black Hole Explorer</h3>
+        <p class="text-gray-400">3D exploration of cosmic phenomena</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 px-4 max-w-lg mx-auto">
+    <h2 class="text-5xl font-bold text-center mb-8 starlight-text">Contact the Void</h2>
+    <div class="space-glass rounded-3xl p-8 cosmic-glow">
+      <form class="space-y-6">
+        <input type="text" placeholder="Your Name" required 
+               class="w-full px-6 py-4 rounded-2xl bg-black/50 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 cosmic-glow backdrop-blur-sm border border-gray-800" />
+        <input type="email" placeholder="Your Email" required 
+               class="w-full px-6 py-4 rounded-2xl bg-black/50 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 cosmic-glow backdrop-blur-sm border border-gray-800" />
+        <textarea placeholder="Your Message" rows="5" 
+                  class="w-full px-6 py-4 rounded-2xl bg-black/50 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 cosmic-glow backdrop-blur-sm border border-gray-800"></textarea>
+        <button type="submit" 
+                class="w-full stellar-gradient hover:scale-105 text-blue-100 font-semibold py-4 rounded-2xl transition-transform cosmic-glow">
+          🚀 Send to the Void
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 text-center">
+    <div class="space-glass rounded-full inline-block px-8 py-4 cosmic-glow">
+      <span class="text-blue-300">© 2025 ily Devlep - Navigating the Infinite Darkness</span>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize particlesJS
+    particlesJS.load('particles-js', 'particles.json', function() {
+      console.log('Cosmic particles loaded');
+    });
+
+    // Theme toggle (keeping the functionality but updating the styling)
+    const body = document.body;
+    const toggleBtn = document.getElementById('toggleTheme');
+
+    toggleBtn.addEventListener('click', () => {
+      // Add a cosmic flash effect
+      body.style.filter = 'brightness(1.5) hue-rotate(180deg)';
+      setTimeout(() => {
+        body.style.filter = 'brightness(1) hue-rotate(0deg)';
+      }, 300);
+    });
+
+    // Add floating animation to skill bars on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-progress');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-progress').forEach(bar => {
+      observer.observe(bar);
+    });
+  </script>
+
+</body>
+</html>
